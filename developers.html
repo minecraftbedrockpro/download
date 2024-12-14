@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvedor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+        href="https://imgs.search.brave.com/0O7ONsAyrIemhBcYoTVMKXq6Dce_Bop-Qbf7v3jI76g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXBuZy5vcmcvd3At/Y29udGVudC91cGxv/YWRzLzIwMTcvMDgv/bWluZWNyYWZ0LWlj/b25lLWljb24ucG5n"
+        type="image/png"> <!-- Ícone do site -->
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Para evitar a barra de rolagem */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .developer {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .developer img {
+            width: 200px;
+            /* Ajuste para o tamanho da imagem */
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer button {
+            background-color: #444;
+            color: rgb(248, 245, 248);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer button:hover {
+            background-color: #666;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall 1s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(100vh);
+                /* Move para o fundo da tela */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Desenvolvedor</h1>
+    </header>
+    <main>
+        <div class="developer">
+            <h2>HigorRochaGamex</h2>
+            <h2>Este site não foi criado para fins lucrativos.</p>
+        </div>
+        <!-- Repita a estrutura acima para adicionar mais desenvolvedores -->
+    </main>
+    <footer>
+        <button onclick="window.location.href='index.html'">Voltar</button>
+    </footer>
+
+    <script>
+        // Adiciona estrelas cadentes ao fundo
+        const body = document.body;
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 5 + 2; // Tamanho aleatório entre 2 e 7px
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 2 + 2}s`; // Duração aleatória entre 2 e 4 segundos
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            body.appendChild(star);
+        }
+    </script>
+</body>
+
+</html>
