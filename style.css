@@ -1,3 +1,4 @@
+/* Estilo do corpo */
 body {
     background-color: rgb(0, 0, 0);
     overflow: hidden; /* Para evitar a barra de rolagem */
@@ -26,22 +27,83 @@ body {
 .star:nth-child(2) { width: 3px; height: 3px; top: 10vh; left: 60vw; animation-delay: 0.5s; }
 .star:nth-child(3) { width: 4px; height: 4px; top: 50vh; left: 15vw; animation-delay: 1s; }
 .star:nth-child(4) { width: 3px; height: 3px; top: 80vh; left: 70vw; animation-delay: 1.5s; }
-/* ... Adicione mais estrelas conforme necessário ... */
 
-
-
+/* Logo */
 .logo {
-    transform: scale(0.6);  /* Reduz a imagem para 50% do tamanho original */
-}
-
-h1 {
-    text-align: center; /* Centraliza o conteúdo dentro do <h1> */
-    margin: 0; /* Remove margens extras */
-}
-
-.logo {
+    transform: scale(0.6);  /* Reduz a imagem para 60% do tamanho original */
     max-width: 100%; /* A imagem não ultrapassa a largura da tela */
     height: auto; /* Mantém a proporção original da imagem */
     display: inline-block; /* Impede a imagem de se expandir para ocupar toda a largura */
 }
 
+/* Cabeçalho */
+h1 {
+    text-align: center; /* Centraliza o conteúdo dentro do <h1> */
+    margin: 0; /* Remove margens extras */
+}
+
+/* Estilos gerais dos botões */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos dos botões ao passar o mouse */
+button:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos específicos para os botões de navegação */
+.nav-button {
+    background-color: #2196F3; /* Cor de fundo azul */
+}
+
+.nav-button:hover {
+    background-color: #0b7dda; /* Cor de fundo ao passar o mouse */
+}
+
+/* Container para centralizar e alinhar os botões */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Estilo específico para o botão "Desenvolvedor" */
+#dev-button {
+    background-color: #f44336; /* Cor de fundo vermelha */
+}
+
+#dev-button:hover {
+    background-color: #da190b; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .logo {
+        transform: scale(0.8);  /* Ajuste o tamanho da imagem em telas menores */
+    }
+    
+    button {
+        padding: 8px 16px; /* Ajuste o tamanho dos botões em telas menores */
+        font-size: 14px;
+    }
+    
+    .button-container {
+        flex-direction: column; /* Muda a direção dos botões para coluna em telas menores */
+        align-items: stretch; /* Alinha os botões para preencher a largura disponível */
+    }
+    
+    nav button {
+        margin: 10px 0; /* Adiciona espaço entre os botões de navegação */
+    }
+}
