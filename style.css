@@ -1,81 +1,144 @@
-/* Estilo do corpo */
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     overflow: hidden; /* Para evitar a barra de rolagem */
 }
 
-/* Efeito para as estrelas cintilantes */
-.star {
-    position: absolute;
-    background-color: rgb(2, 252, 35);
-    border-radius: 50%;
-    animation: twinkle 1.5s infinite;
+header {
+    text-align: center;
+    padding: 20px;
 }
 
-/* Animação de cintilar */
-@keyframes twinkle {
-    0%, 100% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 1;
-    }
+nav {
+    margin: 20px 0;
 }
 
-/* Estilos para adicionar estrelas no fundo */
-.star:nth-child(1) { width: 2px; height: 2px; top: 20vh; left: 30vw; animation-delay: 0s; }
-.star:nth-child(2) { width: 3px; height: 3px; top: 10vh; left: 60vw; animation-delay: 0.5s; }
-.star:nth-child(3) { width: 4px; height: 4px; top: 50vh; left: 15vw; animation-delay: 1s; }
-.star:nth-child(4) { width: 3px; height: 3px; top: 80vh; left: 70vw; animation-delay: 1.5s; }
+nav button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0 5px;
+}
 
-/* Logo */
+nav button:hover {
+    background-color: #666;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    margin: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+}
+
+li {
+    margin-bottom: 10px; /* Espaço entre as versões */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+footer button:hover {
+    background-color: #666;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilo para o menu suspenso de versão */
+#version-menu {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para o seletor de versão */
+#version-select {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #c4c9c5;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito de foco no seletor */
+#version-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+/* Estilo da logo */
 .logo {
     transform: scale(0.6);  /* Reduz a imagem para 60% do tamanho original */
     max-width: 100%; /* A imagem não ultrapassa a largura da tela */
     height: auto; /* Mantém a proporção original da imagem */
     display: inline-block; /* Impede a imagem de se expandir para ocupar toda a largura */
 }
-
-/* Cabeçalho */
-h1 {
-    text-align: center; /* Centraliza o conteúdo dentro do <h1> */
-    margin: 0; /* Remove margens extras */
-}
-
 /* Estilos gerais dos botões */
 button {
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 12px 25px;
+    margin: 10px;
     border: none;
-    border-radius: 5px;
-    background-color: #4CAF50; /* Cor de fundo verde */
+    border-radius: 20px; /* Bordas mais arredondadas */
+    background-color: #e2e2e2; /* Cor de fundo verde */
     color: white; /* Cor do texto */
     font-size: 16px;
+    font-weight: bold; /* Deixa o texto mais grosso */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra suave */
 }
 
-/* Estilos dos botões ao passar o mouse */
+/* Efeito de hover nos botões */
 button:hover {
-    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+    background-color: #a07b45; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento do botão ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+}
+
+/* Efeito de foco nos botões */
+button:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    box-shadow: 0 0 10px rgba(209, 207, 207, 0.8); /* Adiciona uma borda de foco verde */
 }
 
 /* Estilos específicos para os botões de navegação */
 .nav-button {
-    background-color: #2196F3; /* Cor de fundo azul */
+    background-color: #363738; /* Cor de fundo azul */
 }
 
 .nav-button:hover {
-    background-color: #0b7dda; /* Cor de fundo ao passar o mouse */
-}
-
-/* Container para centralizar e alinhar os botões */
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; /* Espaçamento entre os botões */
+    background-color: #1d1a0b; /* Cor de fundo ao passar o mouse */
 }
 
 /* Estilo específico para o botão "Desenvolvedor" */
@@ -87,23 +150,87 @@ button:hover {
     background-color: #da190b; /* Cor de fundo ao passar o mouse */
 }
 
-/* Estilos responsivos */
+/* Botões do footer */
+footer button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer button:hover {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+footer button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8); /* Borda de foco azul */
+}
+/* Estilos para o corpo da página */
+body {
+    position: relative;
+    overflow: hidden;
+    background-color: #000; /* Define o fundo preto */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos das estrelas */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #3cc719;
+    animation: twinkle 5s infinite; /* Animação para fazer as estrelas piscarem */
+    opacity: 0;
+    z-index: -1; /* Coloca as estrelas atrás de outros elementos */
+}
+
+/* Animação de brilho das estrelas */
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* Ajustes gerais para dispositivos móveis */
 @media (max-width: 600px) {
+    /* Redefine o tamanho da logo em telas menores */
     .logo {
-        transform: scale(0.8);  /* Ajuste o tamanho da imagem em telas menores */
+        transform: scale(1.4);  /* Ajuste o tamanho da logo */
+        max-width: 80%; /* Limita a largura da logo */
     }
-    
+
+    /* Ajusta o tamanho dos botões em telas menores */
     button {
-        padding: 8px 16px; /* Ajuste o tamanho dos botões em telas menores */
-        font-size: 14px;
+        padding: 12px 24px; /* Tamanho maior para botões */
+        font-size: 14px; /* Tamanho do texto menor */
+        width: auto; /* Ajusta o tamanho do botão */
+        margin: 5px; /* Adiciona espaçamento entre os botões */
     }
-    
+
+    /* Garante que os botões fiquem lado a lado e com espaçamento */
     .button-container {
-        flex-direction: column; /* Muda a direção dos botões para coluna em telas menores */
-        align-items: stretch; /* Alinha os botões para preencher a largura disponível */
+        flex-direction: row; /* Organiza os botões em linha */
+        flex-wrap: wrap; /* Permite que os botões se ajustem se necessário */
+        gap: 15px; /* Adiciona espaçamento entre os botões */
+        justify-content: center; /* Centraliza os botões */
     }
-    
-    nav button {
-        margin: 10px 0; /* Adiciona espaço entre os botões de navegação */
+
+    /* Ajuste no tamanho da margem */
+    section {
+        margin: 15px 0;
     }
 }
