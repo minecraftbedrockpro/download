@@ -35,8 +35,8 @@
     <script>
         // Dados de todas as versões para cada plataforma
         const versions = {
-            PC: ["1.21.60", "1.21.51", "1.21.44", "1.21.31", "1.21.23"], // Versões para PC
-            Android: ["1.21.60", "1.21.51", "1.21.31"], // Versões para Android
+            PC: ["1.21.61", "1.21.60", "1.21.51", "1.21.44", "1.21.31", "1.21.23"], // Versões para PC
+            Android: ["1.21.61", "1.21.60", "1.21.51", "1.21.31"], // Versões para Android
             Patched: ["1.21.51.02", "1.21.30.03"], // Versões para Patched
             Java: ["PC", "Mobile"] // Versões para Java
         };
@@ -44,6 +44,7 @@
         // Mapeando as versões para seus links específicos de download
         const downloadLinks = {
             PC: {
+                "1.21.61": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.61/1.21.61.Appx",
                 "1.21.60": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/pc/Microsoft.MinecraftUWP_1.21.6010.0_x64__8wekyb3d8bbwe.Appx?inline=false",
                 "1.21.51": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.51/1.21.51.Appx",
                 "1.21.44": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.44/1.21.44.Appx",
@@ -51,6 +52,10 @@
                 "1.21.23": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.23/1.21.23.Appx"
             },
             Android: {
+                "1.21.61": {
+                      "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-61-01-xbox-servers-compressed.apk?inline=false",
+                      "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-61-01-xbox-servers-compressed.apk?inline=false",
+                },
                 "1.21.60": {
                      "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/Minecraft_1.21.60__MinecraftDownload.apk?inline=false",
                      "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/Minecraft_1.21.60__MinecraftDownload.apk?inline=false"
