@@ -8,168 +8,20 @@
     <link rel="icon" href="https://imgs.search.brave.com/0O7ONsAyrIemhBcYoTVMKXq6Dce_Bop-Qbf7v3jI76g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXBuZy5vcmcvd3At/Y29udGVudC91cGxv/YWRzLzIwMTcvMDgv/bWluZWNyYWZ0LWlj/b25lLWljb24ucG5n" type="image/png">
 </head>
 <body>
-    <header>       
-        <h1>
-            <img src="banner.png" alt="Logo" class="logo">
-        </h1>
-        <nav>
-            <button onclick="loadSection('PC')" class="nav-button">PC</button>
-            <button onclick="loadSection('Android')" class="nav-button">Android</button>
-            <button onclick="loadSection('Patched')" class="nav-button">Patched</button>
-            <button onclick="loadSection('Java')" class="nav-button">Java</button>
-        </nav>
-        <div id="version-menu">
-            <label for="version-select">Escolha a versão:</label>
-            <select id="version-select" onchange="loadVersion()">
-                <!-- As opções de versão serão preenchidas dinamicamente -->
-            </select>
-        </div>
-    </header>
-    <main id="main-content">
-        <!-- O conteúdo das versões será carregado aqui -->
-    </main>
-    <footer>
-        <button onclick="window.location.href='developers.html'">Desenvolvedor</button>
-    </footer>
 
-    <script>
-        // Dados de todas as versões para cada plataforma
-        const versions = {
-            PC: ["1.21.62", "1.21.61", "1.21.60", "1.21.51", "1.21.44", "1.21.31", "1.21.23"], // Versões para PC
-            Android: ["1.21.62", "1.21.61", "1.21.60", "1.21.51", "1.21.31"], // Versões para Android
-            Patched: ["1.21.51.02", "1.21.30.03"], // Versões para Patched
-            Java: ["PC", "Mobile"] // Versões para Java
-        };
+    <div class="banner"></div>
+    
+    <button id="pcButton" class="button selected" onclick="showDownloadButton('https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.62/1.21.62.Appx', 'PC', '1.21.62', 'icon.png')">PC</button>
+    <button class="button" onclick="showDownloadButton('https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft_1_21_62_compressed.apk?inline=false', 'Android', '1.21.62', 'icon.png')">Android</button>
+    <button class="button" onclick="showDownloadButton('https://anonymfile.com/f/529a01cb-930e-485c-b485-08eed3ab37c1', 'Minecraft Skin 4D', '1.21.62', 'icon.png')">Skin 4D</button>
+    <button class="button" onclick="showDownloadButton('https://anonymfile.com/f/6e0b3323-8e3f-4b8d-bbdf-9d938d82ed4f', 'Minecraft Shader', '1.21.62', 'icon.png')">Shader</button>    
+    
+    <div id="selectedOption" class="selected-option"></div>
+    
+    <a id="downloadButton" class="download-button" href="#" download>Baixar</a>
 
-        // Mapeando as versões para seus links específicos de download
-        const downloadLinks = {
-            PC: {
-                "1.21.62": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.62/1.21.62.Appx",
-                "1.21.61": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.61/1.21.61.Appx",
-                "1.21.60": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/pc/Microsoft.MinecraftUWP_1.21.6010.0_x64__8wekyb3d8bbwe.Appx?inline=false",
-                "1.21.51": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.51/1.21.51.Appx",
-                "1.21.44": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.44/1.21.44.Appx",
-                "1.21.31": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.31/1.21.31.Appx",
-                "1.21.23": "https://github.com/OnixClient/onix_compatible_appx/releases/download/1.21.23/1.21.23.Appx"
-            },
-            Android: {
-                "1.21.62": {
-                      "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft_1_21_62_compressed.apk?inline=false",
-                      "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft_1_21_62_compressed.apk?inline=false",
-                },
-                "1.21.61": {
-                      "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-61-01-xbox-servers-compressed.apk?inline=false",
-                      "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-61-01-xbox-servers-compressed.apk?inline=false",
-                },
-                "1.21.60": {
-                     "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/Minecraft_1.21.60__MinecraftDownload.apk?inline=false",
-                     "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/Minecraft_1.21.60__MinecraftDownload.apk?inline=false"
-                },
-                "1.21.51": {
-                    "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-51-01-xbox-servers-compressed.apk?ref_type=heads&inline=false",
-                    "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-51-01-arm64-v8a-xbox-servers-compressed.apk?ref_type=heads&inline=false"
-                },
-                "1.21.31": {
-                    "32Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-31-04-xbox-compressed.apk?ref_type=heads&inline=false",
-                    "64Bit": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/android/minecraft-1-21-31-04-arm64-v8a-xbox-compressed.apk?ref_type=heads&inline=false"
-                }
-            },
-            Patched: {
-                "1.21.51.02": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/patched/patched1.21.51.02.apk?ref_type=heads&inline=false",
-                "1.21.30.03": "https://gitlab.com/marketplacefree/downloadssite/-/raw/main/patched/1.21.30.03_arm32_arm64_patched.apk?ref_type=heads&inline=false"
-            },
-            Java: {
-                "PC": "https://llaun.ch/pt-BR",
-                "Mobile": "https://pojavlauncher.app/wiki/getting_started/INSTALL.html#android"
-            }
-        };
+    <button id="devButton" class="dev-button" onclick="window.location.href='developers.html'">Desenvolvedor</button>
 
-        // Função para carregar as versões e conteúdo da plataforma selecionada
-        function loadSection(platform) {
-            // Salva a plataforma selecionada no localStorage
-            localStorage.setItem('selectedPlatform', platform);
-
-            // Limpa o seletor de versões
-            const versionSelect = document.getElementById('version-select');
-            versionSelect.innerHTML = ''; // Limpar as opções existentes
-
-            // Se a plataforma for Java, ocultar a seleção de versão
-            if (platform === "Java") {
-                document.getElementById('version-menu').style.display = 'none'; // Esconde o menu de versão
-            } else {
-                document.getElementById('version-menu').style.display = 'block'; // Exibe o menu de versão
-                // Preencher o seletor de versões com base na plataforma
-                versions[platform].forEach(version => {
-                    const option = document.createElement('option');
-                    option.value = version;
-                    option.textContent = version;
-                    versionSelect.appendChild(option);
-                });
-            }
-
-            // Carregar a versão por padrão (primeira opção) para as plataformas que possuem versões
-            if (platform !== "Java") {
-                loadVersion();
-            } else {
-                loadJavaContent();
-            }
-
-            // Atualiza o estilo do botão ativo
-            document.querySelectorAll('nav button').forEach(button => {
-                button.classList.remove('active');
-            });
-            document.querySelector(`nav button[onclick="loadSection('${platform}')"]`).classList.add('active');
-        }
-
-        // Função para carregar o conteúdo correspondente à versão selecionada
-        function loadVersion() {
-            const platform = document.querySelector('nav button.active')?.textContent || 'PC'; // Obtém a plataforma selecionada
-            const version = document.getElementById('version-select').value;
-            const downloadData = downloadLinks[platform][version]; // Obtém os links de download específicos
-
-            let content = `   
-                <h2>Downloads para ${platform}</h2>
-                <ul>
-                    <li>
-                        <img src="icone.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle;">
-                        Versão ${version} - `;
-
-            // Verificar se é Android para exibir as versões 32Bit e 64Bit
-            if (platform === 'Android') {
-                content += ` 
-                        <a href="${downloadData['64Bit']}" download>64Bit</a> / 
-                        <a href="${downloadData['32Bit']}" download>32Bit</a>
-                    `;
-            } else {
-                content += `<a href="${downloadData}" download>Download</a>`;
-            }
-
-            content += `</li></ul>`;
-            document.getElementById('main-content').innerHTML = content;
-        }
-
-        // Função para carregar conteúdo de Java sem selecionar versão
-        function loadJavaContent() {
-            const content = `   
-                <h2>Downloads para Java</h2>
-                <ul>
-                    <li>
-                        <img src="icone.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle;">
-                        Versão PC - <a href="${downloadLinks.Java["PC"]}" download>Download</a>
-                    </li>
-                    <li>
-                        <img src="icone.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle;">
-                        Versão Mobile - <a href="${downloadLinks.Java["Mobile"]}" download>Download</a>
-                    </li>
-                </ul>`;
-            document.getElementById('main-content').innerHTML = content;
-        }
-
-        // Recuperar a plataforma e versão selecionadas do localStorage
-        const savedPlatform = localStorage.getItem('selectedPlatform') || 'PC';
-        loadSection(savedPlatform);
-
-    </script>
     <script src="script.js"></script>
 </body>
 </html>

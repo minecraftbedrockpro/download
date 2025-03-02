@@ -1,3 +1,18 @@
+function showDownloadButton(link, option, version, icon) {
+    const downloadButton = document.getElementById('downloadButton');
+    const selectedOption = document.getElementById('selectedOption');
+    
+    downloadButton.href = link;
+    downloadButton.style.display = 'block';
+    
+    selectedOption.innerHTML = `
+        Opção selecionada: ${option}
+        <div class="version-info">
+            <img src="${icon}" alt="${option} Icon"> <!-- Ícone comum -->
+            <div class="version">${version}</div>
+        </div>
+    `;
+}
 // Função para adicionar as estrelas dinamicamente
 for (let i = 0; i < 100; i++) {
     const star = document.createElement('div'); // Cria o elemento da estrela

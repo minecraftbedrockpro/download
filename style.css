@@ -1,188 +1,177 @@
 body {
-    background-color: black;
-    color: white;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Para evitar a barra de rolagem */
-}
-
-header {
     text-align: center;
-    padding: 20px;
-}
-
-nav {
-    margin: 20px 0;
-}
-
-nav button {
-    background-color: #444;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-nav button:hover {
-    background-color: #666;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-section {
-    margin: 20px;
-    text-align: center;
-}
-
-ul {
-    list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-}
-
-li {
-    margin-bottom: 10px; /* Espaço entre as versões */
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-footer button {
-    background-color: #444;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-footer button:hover {
-    background-color: #666;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Estilo para o menu suspenso de versão */
-#version-menu {
-    margin-top: 20px;
-    text-align: center;
-}
-
-/* Estilo para o seletor de versão */
-#version-select {
-    background-color: #fff;
-    color: #333;
-    border: 2px solid #c4c9c5;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 200px;
-    margin-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-/* Efeito de foco no seletor */
-#version-select:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-}
-/* Estilo da logo */
-.logo {
-    transform: scale(0.6);  /* Reduz a imagem para 60% do tamanho original */
-    max-width: 100%; /* A imagem não ultrapassa a largura da tela */
-    height: auto; /* Mantém a proporção original da imagem */
-    display: inline-block; /* Impede a imagem de se expandir para ocupar toda a largura */
-}
-/* Estilos gerais dos botões */
-button {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    border-radius: 20px; /* Bordas mais arredondadas */
-    background-color: #e2e2e2; /* Cor de fundo verde */
+    margin: 50px;
+    background-color: #111; /* Fundo escuro */
     color: white; /* Cor do texto */
-    font-size: 16px;
-    font-weight: bold; /* Deixa o texto mais grosso */
+    position: relative; /* Necessário para as estrelas */
+    overflow: hidden; /* Impede as estrelas de saírem da tela */
+}
+
+/* Estrelas brilhando */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 10px; /* Tamanho das estrelas */
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    animation: shine 1.5s infinite alternate; /* Brilho contínuo */
+    opacity: 0.5;
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.5); /* Aumenta o tamanho das estrelas */
+    }
+}
+
+.banner {
+    width: 100%;
+    height: 150px;
+    background-image: url('banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: block;
+    width: 200px;
+    padding: 12px;
+    margin: 10px auto;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #28a745; /* Verde */
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra suave */
+    position: relative;
+    transition: background-color 0.3s;
 }
 
-/* Efeito de hover nos botões */
-button:hover {
-    background-color: #a07b45; /* Cor de fundo ao passar o mouse */
-    transform: scale(1.05); /* Leve aumento do botão ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+.button:hover {
+    background-color: #218838; /* Verde mais escuro no hover */
 }
 
-/* Efeito de foco nos botões */
-button:focus {
-    outline: none; /* Remove o contorno padrão do navegador */
-    box-shadow: 0 0 10px rgba(209, 207, 207, 0.8); /* Adiciona uma borda de foco verde */
+.selected-option {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
-/* Estilos específicos para os botões de navegação */
-.nav-button {
-    background-color: #363738; /* Cor de fundo azul */
+.download-button {
+    display: none;
+    width: 200px;
+    padding: 10px;
+    margin: 10px auto;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.nav-button:hover {
-    background-color: #1d1a0b; /* Cor de fundo ao passar o mouse */
+.download-button:hover {
+    background-color: #218838;
 }
 
-/* Estilo específico para o botão "Desenvolvedor" */
-#dev-button {
-    background-color: #f44336; /* Cor de fundo vermelha */
-}
-
-#dev-button:hover {
-    background-color: #da190b; /* Cor de fundo ao passar o mouse */
-}
-
-/* Botões do footer */
-footer button {
-    background-color: #444;
+.dev-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-footer button:hover {
-    background-color: #666;
-    transform: scale(1.05);
+.dev-button:hover {
+    background-color: #555;
 }
 
-footer button:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8); /* Borda de foco azul */
-}
-/* Estilos para o corpo da página */
-body {
-    position: relative;
-    overflow: hidden;
-    background-color: #000; /* Define o fundo preto */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Adicionando borda e ícone à versão */
+.version-info {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
+.version-info img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.version-info .version {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Media Query para dispositivos móveis */
+@media (max-width: 768px) {
+    .banner {
+        height: 120px;
+    }
+    .button {
+        width: 150px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 100px;
+    }
+    .button {
+        width: 120px;
+        font-size: 14px;
+    }
+}
+
+.selected-option .version-info {
+    display: flex; /* Exibe os itens em linha */
+    align-items: center; /* Alinha o ícone e a versão verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Espaçamento entre o ícone e a versão */
+    margin-top: 10px; /* Ajusta o espaçamento superior */
+}
+
+.selected-option .version-info img {
+    width: 20px; /* Ajusta o tamanho do ícone */
+    height: 20px; /* Ajusta a altura do ícone */
+    object-fit: contain; /* Garante que a imagem se ajuste corretamente */
+}
+
+.selected-option .version-info .version {
+    font-size: 14px; /* Ajusta o tamanho da fonte da versão */
+    background-color: #f1f1f1; /* Cor de fundo da versão */
+    border: 1px solid #ccc; /* Borda da versão */
+    padding: 2px 5px; /* Preenche o fundo da versão */
+    border-radius: 5px; /* Borda arredondada */
+}
 /* Estilos das estrelas */
 .star {
     position: absolute;
@@ -204,33 +193,4 @@ body {
     100% {
         opacity: 0;
     }
-}
-/* Ajustes gerais para dispositivos móveis */
-@media (max-width: 600px) {
-    /* Redefine o tamanho da logo em telas menores */
-    .logo {
-        transform: scale(1.4);  /* Ajuste o tamanho da logo */
-        max-width: 80%; /* Limita a largura da logo */
-    }
-
-    /* Ajusta o tamanho dos botões em telas menores */
-    button {
-        padding: 12px 24px; /* Tamanho maior para botões */
-        font-size: 14px; /* Tamanho do texto menor */
-        width: auto; /* Ajusta o tamanho do botão */
-        margin: 5px; /* Adiciona espaçamento entre os botões */
-    }
-
-    /* Garante que os botões fiquem lado a lado e com espaçamento */
-    .button-container {
-        flex-direction: row; /* Organiza os botões em linha */
-        flex-wrap: wrap; /* Permite que os botões se ajustem se necessário */
-        gap: 15px; /* Adiciona espaçamento entre os botões */
-        justify-content: center; /* Centraliza os botões */
-    }
-
-    /* Ajuste no tamanho da margem */
-    section {
-        margin: 15px 0;
-    }
-}
+} 
