@@ -1,14 +1,33 @@
 function showDownloadButton(link, option, version, icon) {
     const downloadButton = document.getElementById('downloadButton');
     const selectedOption = document.getElementById('selectedOption');
-    
-    downloadButton.href = link;
-    downloadButton.style.display = 'block';
-    
+
+    // Limpar conteúdo anterior dos botões
+    downloadButton.innerHTML = '';
+
+    // Se a opção for Android, mostrar dois botões em vez de um único
+    if (option === 'Android') {
+        downloadButton.innerHTML = `
+            <button class="button" onclick="window.location.href='https://api.onedrive.com/v1.0/shares/s!AhR7Tn1QhBcbgQXMDdmnoj8Qm42E/root/content'">Baixar 64bit</button>
+            <button class="button" onclick="window.location.href='https://api.onedrive.com/v1.0/shares/s!AhR7Tn1QhBcbgQF_3sj_iMsvi3ni/root/content'">Baixar 32bit</button>
+        `;
+    } else {
+        // Para outras opções, criar um único botão de download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = link;
+        downloadLink.classList.add('button');
+        downloadLink.textContent = 'Baixar';
+        downloadLink.setAttribute('download', ''); // Permite o download diretamente
+        downloadButton.appendChild(downloadLink);
+    }
+
+    downloadButton.style.display = 'block'; // Exibir a div de download
+
+    // Atualizar as informações da opção selecionada
     selectedOption.innerHTML = `
         Opção selecionada: ${option}
         <div class="version-info">
-            <img src="${icon}" alt="${option} Icon"> <!-- Ícone comum -->
+            <img src="${icon}" alt="${option} Icon"> <!-- Ícone -->
             <div class="version">${version}</div>
         </div>
     `;

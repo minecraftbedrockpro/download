@@ -194,3 +194,14 @@ body {
         opacity: 0;
     }
 } 
+/* Botões de Download Android */
+.download-buttons {
+    display: flex;
+    flex-direction: column; /* Faz com que os botões fiquem em coluna */
+    align-items: center; /* Centraliza os botões horizontalmente */
+}
+
+.download-buttons .button {
+    width: 200px; /* Ajuste a largura dos botões */
+    margin-bottom: 10px; /* Espaço entre os botões */
+}
