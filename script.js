@@ -8,8 +8,8 @@ function showDownloadButton(link, option, version, icon) {
     // Se a opção for Android, mostrar dois botões em vez de um único
     if (option === 'Android') {
         downloadButton.innerHTML = `
-            <button class="button" onclick="window.location.href='https://api.onedrive.com/v1.0/shares/s!AhR7Tn1QhBcbgQXMDdmnoj8Qm42E/root/content'">Baixar 64bit</button>
-            <button class="button" onclick="window.location.href='https://api.onedrive.com/v1.0/shares/s!AhR7Tn1QhBcbgQF_3sj_iMsvi3ni/root/content'">Baixar 32bit</button>
+            <button class="button" onclick="window.location.href='Instale o 32 bit por enquanto.'">Baixar 64bit</button>
+            <button class="button" onclick="window.location.href='https://anonymfile.com/f/558d7e44-8e0c-4889-b17e-93d91f3fae1c'">Baixar 32bit</button>
         `;
     } else {
         // Para outras opções, criar um único botão de download
