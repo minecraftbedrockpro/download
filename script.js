@@ -8,8 +8,8 @@ function showDownloadButton(link, option, version, icon) {
     // Se a opção for Android, mostrar dois botões em vez de um único
     if (option === 'Android') {
         downloadButton.innerHTML = `
-            <button class="button" onclick="window.location.href='https://anonymfile.com/f/4c3f821a-bc3c-4593-8cbe-84d8144551a9'">Baixar 64bit</button>
-            <button class="button" onclick="window.location.href='https://anonymfile.com/f/5430fad2-91e3-45db-a435-cf50d40e0b9f'">Baixar 32bit</button>
+            <button class="button" onclick="window.location.href='https://1drv.ms/u/c/3865981efee0ef09/EbFfuBVtcnhKodWcF2a_5YgB2TxdPXP7jWLaqPA8gVUEfw'">Baixar 64bit</button>
+            <button class="button" onclick="window.location.href='https://1drv.ms/u/c/3865981efee0ef09/Edqzg5TXvbBPtLbyVMGRQwUBzi1VOT9iXBKCgfr6_CrYw'">Baixar 32bit</button>
         `;
     } else {
         // Para outras opções, criar um único botão de download
